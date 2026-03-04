@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Campus Coffee Order</string>
+    <string-array name="coffee_sizes">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Heart Attack</item>
+    </string-array>
+
+    <string-array name="coffee_types">
+        <item>Drip - Black</item>
+        <item>Espresso</item>
+        <item>Latte</item>
+        <item>Supercalifragilisticexpialidocious</item>
+        <item>Mocha</item>
+        <item>Frappe</item>
+    </string-array>
+
+    <string name="name_hint">Please enter a name for the order</string>
+    <string name="bal_hint">Please enter how much you would like to pay</string>
+
+</resources>
