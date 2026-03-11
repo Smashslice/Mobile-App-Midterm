@@ -9,13 +9,7 @@
 
     <ImageView
         android:id="@+id/successFailImg"
-        android:layout_marginLeft="180dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="Check mark for success"
-        android:scaleType="centerCrop"
-        android:src="@drawable/check"
+        style="@style/Style.IconStyle"
         />
 
     <TextView

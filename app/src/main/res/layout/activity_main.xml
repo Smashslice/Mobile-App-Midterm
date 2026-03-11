@@ -18,41 +18,30 @@
 
     <EditText
         android:id="@+id/ordName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        style="@style/Style.InputField"
         android:hint="@string/name_hint"
         android:layout_marginHorizontal="5dp"
-        android:padding="5dp" />
+        />
 
     <Spinner
         android:id="@+id/coffee_type_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        style="@style/Style.Spinner"
         android:layout_marginHorizontal="5dp"
-        android:layout_margin="5dp"
         />
 
     <Spinner
         android:id="@+id/coffee_size_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        style="@style/Style.Spinner"
         android:layout_marginHorizontal="5dp"
-        android:layout_margin="5dp"
         />
 
     <EditText
         android:id="@+id/ordBalance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Style.InputField"
         android:hint="@string/bal_hint"
         android:inputType="numberDecimal"
         android:layout_marginTop="8dp"
-        android:padding="5dp"
         android:layout_marginHorizontal="5dp"
-        android:layout_margin="5dp"
         />
 
     <Button

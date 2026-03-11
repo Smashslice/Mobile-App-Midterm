@@ -2,6 +2,7 @@ package com.week.campuscoffeeorder
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -16,7 +17,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+//        Log creation for life cycle tracking
+        Log.d("MainActivity", "Created")
+            super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -25,6 +28,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Variable Declaration
+
+        // Order name and balance
         val ordName = findViewById<EditText>(R.id.ordName)
         val ordBalance = findViewById<EditText>(R.id.ordBalance)
 
@@ -32,6 +38,12 @@ class MainActivity : AppCompatActivity() {
         val coffee_type: Spinner = findViewById<Spinner>(R.id.coffee_type_spinner)
         val coffee_size: Spinner = findViewById<Spinner>(R.id.coffee_size_spinner)
 
+        // Users selected size and coffee, for passing to the next view
+        var selected_size = ""
+        var selected_coffee = ""
+
+        // Create a spinner from the declared string array in res/strings called coffee_sizes
+        // Create the adapter for the spinner and set it to the spinner
         ArrayAdapter.createFromResource(
             this,
             R.array.coffee_sizes,
@@ -41,6 +53,9 @@ class MainActivity : AppCompatActivity() {
             coffee_size.adapter = adapter
         }
 
+
+        // Create a spinner from the declared string array in res/strings called coffee_types
+        // Create the adapter for the spinner and set it to the spinner
         ArrayAdapter.createFromResource(
             this,
             R.array.coffee_types,
@@ -50,8 +65,7 @@ class MainActivity : AppCompatActivity() {
             coffee_type.adapter = adapter
         }
 
-        var selected_size = ""
-        var selected_coffee = ""
+
 
         // Listener for the coffee size spinner, takes the current selected item and sets the variable
         // To match the currently selected item for passing to the activity
@@ -88,6 +102,9 @@ class MainActivity : AppCompatActivity() {
         // Navigation Button
         val btnNav = findViewById<Button>(R.id.btnPlace)
 
+
+        // Simple check to make sure we don't pass any null values to the next view
+        // Alerts user if either required field is blank via the error popup built into EditTextView
         fun CheckAllFields(): Boolean {
             if (ordName.length() == 0) {
                 ordName.error = "This field is required"
@@ -99,14 +116,20 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
+
+        // Event listener for navigation button
         btnNav.setOnClickListener {
+            // Call check function to validate data
             val data_valid = CheckAllFields()
+            // If valid, do stuff, otherwise don't
             if (data_valid){
+                // Get the name and balnace from user input and grab the current spinner selections
                 val name = ordName.text.toString()
                 val bal = ordBalance.text.toString().toDouble()
                 val size = selected_size
                 val type = selected_coffee
 
+                // Our intent for the OS with the extras that we got from the user
                 val intent = Intent(this@MainActivity, ActivityDetail::class.java)
                 intent.putExtra("name", name)
                 intent.putExtra("balance", bal)
@@ -117,5 +140,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    // Life cycle logging
+    override fun onStart() { super.onStart(); Log.d("MainActivity", "Started") }
+    override fun onResume() { super.onResume(); Log.d("MainActivity", "Resumed ") }
+    override fun onPause() { super.onPause(); Log.d("MainActivity", "Paused ") }
+    override fun onStop() { super.onStop(); Log.d("MainActivity", "Stopped ") }
+    override fun onDestroy() { super.onDestroy(); Log.d("MainActivity", "Destroyed ") }
 }
 

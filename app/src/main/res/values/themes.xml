@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.CampusCoffeeOrder" parent="Base.Theme.CampusCoffeeOrder" />
+
+    <!-- Base Coffee Shop Theme -->
+    <style name="Theme.CampusCoffee" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:colorPrimary">#E2D451</item>
+        <item name="colorSecondary">#C8A96E</item>
+        <item name="android:colorBackground">#595042</item>
+    </style>
+
+    <style name="TextAppearance.CoffeeShop.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">#3E2723</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>
